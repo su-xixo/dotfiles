@@ -1,0 +1,8 @@
+ln -s $(pwd)/helix ~/.config
+ln -s $(pwd)/alacritty ~/.config
+ln -s $(pwd)/tmux ~/.config
+
+ln -s $(pwd)/zsh ~/.config
+ln -s $(pwd)/.zshenv ~
+
+ln -s $(pwd)/bat ~/.config

@@ -1,0 +1,1 @@
+typeset -g -A ABBR_REGULAR_USER_ABBREVIATIONS=( ['":q"']='"exit"' ['"c"']='"clear"' ['"x"']='"exit"' ['"xz"']='"clear && exec zsh"' )
