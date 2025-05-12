@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[user]
+	email = suraj.vishwakarma.01@yandex.com
+	name = suxixo
+[credential]
+	helper = store
