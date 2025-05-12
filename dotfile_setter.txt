@@ -6,3 +6,4 @@ ln -s $(pwd)/zsh ~/.config
 ln -s $(pwd)/.zshenv ~
 
 ln -s $(pwd)/bat ~/.config
+ln -s $(pwd)/nvim ~/.config
