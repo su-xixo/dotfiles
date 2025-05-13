@@ -1,0 +1,3 @@
+[submodule "neovim-simpler"]
+	path = neovim-simpler
+	url = https://github.com/su-xixo/neovim-simpler.git
