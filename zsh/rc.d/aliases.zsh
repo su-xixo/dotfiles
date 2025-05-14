@@ -2,6 +2,12 @@ alias c="clear"
 alias x="exit"
 alias :q="exit"
 
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
 # alacritty opacity changer
 if test -d "${HOME}/dotfiles/alacritty"; then
 	# alias aoc="${HOME}/dotfiles/alacritty/aoc.sh"
@@ -83,3 +89,4 @@ alias on="shutdown -r now"
 # Neovim Related
 alias v="nvim" # default neovim
 alias vs='NVIM_APPNAME=nvim-simpler nvim' # Simpler
+alias ve='NVIM_APPNAME=nvim-eovim nvim' # eovim
