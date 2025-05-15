@@ -10,13 +10,13 @@ return {
     end
   },
   {
-      'stevearc/conform.nvim',
+    'stevearc/conform.nvim',
     cmd = {},
     keys  = function ()
       return require("core.mappings").formatter
     end,
     config = function ()
-      return require("configs.mini.formatter")
+      return require("plugins.configs.formatter")
     end,
   },
 }
