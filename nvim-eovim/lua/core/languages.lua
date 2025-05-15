@@ -6,11 +6,15 @@ H.lsp = {
 }
 H.tools = {
   lua = {
-    treesitter = {},
+    treesitter = {"a", "bb", "ccc"},
     linter = {},
-    dap = {}
+    dap = {1, 2, 3, 4}
   },
-  misc = {},
+  misc = {
+    treesitter = {"A", "BB", "CCC"},
+linter = "string",
+    dap = {11, 12, 13, 14}
+  },
 }
 H.formatter = {
   lua = { "stylua" },
@@ -41,6 +45,24 @@ function H.ext_lsp()
   -- vim.print(lsp_flatten)
   return lsp_flatten
 end
+
+function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
+  scope = scope or "all"
+  local tools_map = vim.iter(H.tools):map(function (_, values)
+    -- vim.print(values[scope])
+    if scope == "all" then
+      local merge_tbl = {}
+      table.insert(merge_tbl, values["linter"])
+      table.insert(merge_tbl, values["dap"])
+      return merge_tbl
+    end
+    if values[scope] then
+      return values[scope]
+    end
+  end):totable()
+  vim.print(vim.iter(tools_map):flatten(math.huge):totable())
+end
+H.ext_tools("dap")
 -- H.ext_fmt()
 -- H.ext_lsp()
 
