@@ -1,0 +1,12 @@
+return {}
+-- return {
+--   {
+--     'echasnovski/mini.nvim', version = '*', name = 'mini', event = "VeryLazy",
+--   },
+--   {
+--     "folke/snacks.nvim",
+--     priority = 1000,
+--     lazy = false,
+--     event = "VeryLazy",
+--   },
+-- }

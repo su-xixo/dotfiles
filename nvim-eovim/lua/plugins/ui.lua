@@ -1,0 +1,28 @@
+return {
+  {
+    "echasnovski/mini.icons",
+    version = '*',
+    name = "mini-icons",
+    init = function ()
+      package.preload["nvim-web-devicons"] = function()
+        package.loaded["nvim-web-devicons"] = {}
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
+    config = function()
+      require("mini.icons").setup({
+        style = "glyph",
+      })
+    end,
+  },
+  {
+    "echasnovski/mini.hipatterns",
+    version = '*',
+    name = "mini-hipatterns",
+    config = function ()
+      return require "plugins.configs.mini.clue"
+    end
+
+  },
+}

@@ -9,3 +9,4 @@ ln -s $(pwd)/.gitconfig ~
 
 ln -s $(pwd)/bat ~/.config
 ln -s $(pwd)/nvim ~/.config
+ln -s $(pwd)/nvim-eovim ~/.config
