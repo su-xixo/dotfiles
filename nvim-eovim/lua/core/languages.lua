@@ -1,19 +1,18 @@
 local H = {}
 H.lsp = {
-  {"a", "b", "b"},
-  python = {"python"},
-  "this"
+  lua = { "lua" },
+  python = {"ruff", "pylsp"},
+  bash = {"bash"},
 }
 H.tools = {
   lua = {
-    treesitter = {"a", "bb", "ccc"},
-    linter = {},
-    dap = {1, 2, 3, 4}
+    treesitter = "lua",
+  },
+  rust = {
+    treesitter = "rust",
   },
   misc = {
-    treesitter = {"A", "BB", "CCC"},
-linter = "string",
-    dap = {11, 12, 13, 14}
+    treesitter = {"lua", "vim", "vimdoc", "bash"},
   },
 }
 H.formatter = {
@@ -21,6 +20,7 @@ H.formatter = {
   python = { "isort", "black" },
   rust = { "rustfmt", lsp_format = "fallback" },
   javascript = { "prettierd", "prettier", stop_after_first = true },
+  sh = { "shfmt" },
 }
 function H.ext_fmt()
   local fmt_map = vim.iter(H.formatter):map(function (_, values)
@@ -52,6 +52,7 @@ function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
     -- vim.print(values[scope])
     if scope == "all" then
       local merge_tbl = {}
+      table.insert(merge_tbl, values["treesitter"])
       table.insert(merge_tbl, values["linter"])
       table.insert(merge_tbl, values["dap"])
       return merge_tbl
@@ -60,10 +61,11 @@ function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
       return values[scope]
     end
   end):totable()
-  vim.print(vim.iter(tools_map):flatten(math.huge):totable())
+  -- vim.print(vim.iter(tools_map):flatten(math.huge):totable())
+  return vim.iter(tools_map):flatten(math.huge):totable()
 end
--- H.ext_tools("dap")
--- H.ext_fmt()
--- H.ext_lsp()
+-- vim.print(H.ext_tools())
+-- vim.print(H.ext_fmt())
+-- vim.print(H.ext_lsp())
 
 return H
