@@ -1,8 +1,8 @@
 local H = {}
 H.lsp = {
-  lua = { "lua" },
+  lua = { "lua_ls" },
   python = {"ruff", "pylsp"},
-  bash = {"bash"},
+  bash = {"bashls"},
 }
 H.tools = {
   lua = {
@@ -70,5 +70,15 @@ end
 -- vim.print(vim.fn.uniq(vim.fn.sort(H.ext_tools("treesitter")))) -- vim.fn.uniq() will remove adjacent dups i.e sorting is imp
 -- vim.print(H.ext_fmt())
 -- vim.print(H.ext_lsp())
+
+-- local function get_tools()
+--   local merged_tbl = {}
+--   table.insert(merged_tbl, H.ext_lsp())
+--   table.insert(merged_tbl, H.ext_tools("linter"))
+--   table.insert(merged_tbl, H.ext_tools("dap"))
+--   return vim.iter(merged_tbl):flatten(math.huge):totable()
+-- end
+--
+-- vim.print(get_tools())
 
 return H
