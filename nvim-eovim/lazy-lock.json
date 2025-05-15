@@ -1,4 +1,5 @@
 {
+  "conform.nvim": { "branch": "master", "commit": "a6f5bdb78caa305496357d17e962bbc4c0b392e2" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mini-ai": { "branch": "main", "commit": "ebb04799794a7f94628153991e6334c3304961b8" },
   "mini-clue": { "branch": "main", "commit": "8e7681e9433766142e8c0977e7f9c31220c78cff" },

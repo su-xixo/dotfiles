@@ -15,7 +15,7 @@ H.active.tree = {
   end, desc = "Mini file explorer" }
 }
 
-H.active.nvchad = {
+H.nvchad = {
   { "<C-b>", "<ESC>^i", desc = "move beginning of line", mode = "i" },
   { "<C-e>", "<End>", desc = "move end of line", mode = "i" },
   { "<C-h>", "<Left>", desc = "move left", mode = "i" },
@@ -89,6 +89,25 @@ H.fzf_lua = {
   -- fzf related
   { "<leader>fw", "<cmd>FzfLua grep_cword<CR>", desc = "Grep current word" },
   { "<leader>fW", "<cmd>FzfLua grep_cWORD<CR>", desc = "Grep current WORD" },
+}
+
+H.formatter = {
+  {
+    "<leader>mp",
+    function()
+      require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 1000, })
+    end,
+    mode = { "n", "v" },
+    desc = "Format buffer"
+  },
+  {
+    "<C-m><C-p>",
+    function()
+      require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 1000, })
+    end,
+    mode = { "i" },
+    desc = "Format buffer"
+  },
 }
 
 H.setmap = function(keyTable)

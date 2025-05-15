@@ -15,6 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy-spec")
 
--- vim.schedule(function()
---   require "mappings".active_map()
--- end)
+vim.schedule(function()
+  require("core.mappings").active_map()
+end)

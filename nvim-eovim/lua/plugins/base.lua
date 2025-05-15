@@ -9,4 +9,14 @@ return {
       return require("plugins.configs.treesitter")
     end
   },
+  {
+      'stevearc/conform.nvim',
+    cmd = {},
+    keys  = function ()
+      return require("core.mappings").formatter
+    end,
+    config = function ()
+      return require("configs.mini.formatter")
+    end,
+  },
 }
