@@ -7,6 +7,6 @@ return treesitter.setup({
 		use_languagetree = true,
 	},
 	indent = { enable = true },
-  ensure_installed = lang.ext_tools(),
+  ensure_installed = vim.fn.uniq(vim.fn.sort(lang.ext_tools("treesitter"))),
 	auto_install = true,
 })

@@ -64,10 +64,10 @@ function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
       return values[scope]
     end
   end):totable()
-  vim.print(vim.iter(tools_map):flatten(math.huge):totable())
+  -- vim.print(vim.iter(tools_map):flatten(math.huge):totable())
   return vim.iter(tools_map):flatten(math.huge):totable()
 end
--- vim.print(H.ext_tools())
+-- vim.print(vim.fn.uniq(vim.fn.sort(H.ext_tools("treesitter")))) -- vim.fn.uniq() will remove adjacent dups i.e sorting is imp
 -- vim.print(H.ext_fmt())
 -- vim.print(H.ext_lsp())
 
