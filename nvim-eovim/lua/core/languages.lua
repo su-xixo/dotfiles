@@ -62,7 +62,7 @@ function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
   end):totable()
   vim.print(vim.iter(tools_map):flatten(math.huge):totable())
 end
-H.ext_tools("dap")
+-- H.ext_tools("dap")
 -- H.ext_fmt()
 -- H.ext_lsp()
 
