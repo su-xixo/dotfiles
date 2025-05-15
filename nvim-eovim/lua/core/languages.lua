@@ -11,8 +11,11 @@ H.tools = {
   rust = {
     treesitter = "rust",
   },
+  python = {
+    treesitter = "python",
+  },
   misc = {
-    treesitter = {"lua", "vim", "vimdoc", "bash"},
+    treesitter = {"lua", "luadoc", "vim", "vimdoc", "bash"},
   },
 }
 H.formatter = {
@@ -61,7 +64,7 @@ function H.ext_tools(scope) -- @args: all, treesitter, linter, dap
       return values[scope]
     end
   end):totable()
-  -- vim.print(vim.iter(tools_map):flatten(math.huge):totable())
+  vim.print(vim.iter(tools_map):flatten(math.huge):totable())
   return vim.iter(tools_map):flatten(math.huge):totable()
 end
 -- vim.print(H.ext_tools())
