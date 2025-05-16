@@ -1,5 +1,13 @@
 return {
   {
+    'echasnovski/mini.basics', version = '*',
+    name = "mini-basics",
+    event = "VeryLazy",
+    config = function ()
+      return require("plugins.configs.mini.basics")
+    end
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     cmd = { "Neotree" },
@@ -42,6 +50,9 @@ return {
     name = "mini-pick",
     dependencies = { 'echasnovski/mini.extra', version = '*', },
     cmd = "Pick",
+    keys = function ()
+      return require("core.mappings").pick
+    end,
     config = function ()
       return require("plugins.configs.mini.pick")
     end
