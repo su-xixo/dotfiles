@@ -91,6 +91,22 @@ H.fzf_lua = {
   { "<leader>fW", "<cmd>FzfLua grep_cWORD<CR>", desc = "Grep current WORD" },
 }
 
+H.pick = {
+  { "<leader>ff", "<cmd>Pick files<CR>", desc = "Find files" },
+  { "<leader>fb", "<cmd>Pick buffers<CR>", desc = "Find buffers" },
+  { "<leader>fr", "<cmd>Pick resume<CR>", desc = "Resume finding" },
+  { "<leader>fh", "<cmd>Pick help<CR>", desc = "Find help" },
+  { "<leader>fo", "<cmd>Pick oldfiles<CR>", desc = "Find oldfiles" },
+  { "<leader>fd", "<cmd>Pick diagnostic scope='current'<CR>", desc = "Find current diagnostic" },
+  { "<leader>fD", "<cmd>Pick diagnostic scope='all'<CR>", desc = "Find all diagnostic" },
+  { "<leader>fg", "<cmd>Pick grep_live<CR>", desc = "Grep live whole project" },
+  { "<leader>/", "<cmd>Pick buf_lines<CR>", desc = "Grep live in current buffer" },
+  { "<leader>fB", "<cmd>Pick buildins<CR>", desc = "Find buildins" },
+  { "<leader>Fn", "<cmd>Pick nvim_config<CR>", desc = "Find within neovim config" },
+  { "<leader>Fd", "<cmd>Pick dotfiles<CR>", desc = "Find within dotfiles" },
+  { "<leader>Fc", "<cmd>Pick config_dir<CR>", desc = "Find within config_dir" },
+}
+
 H.formatter = {
   {
     "<leader>mp",
