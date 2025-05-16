@@ -20,8 +20,9 @@ return {
     "echasnovski/mini.hipatterns",
     version = '*',
     name = "mini-hipatterns",
+    event = { "BufReadPre", "BufNewFile" },
     config = function ()
-      return require "plugins.configs.mini.clue"
+      return require "plugins.configs.mini.hipatterns"
     end
 
   },
