@@ -45,11 +45,30 @@ return {
     end
   },
   {
+    'echasnovski/mini.trailspace', version = '*',
+    name = "mini-trailspace",
+    keys = function ()
+      return require("core.mappings").trailspace
+    end,
+    config = function ()
+      require("mini-trailspace").setup({})
+    end
+  },
+  {
     "echasnovski/mini.pick",
     version = '*',
     name = "mini-pick",
-    dependencies = { 'echasnovski/mini.extra', version = '*', },
     cmd = "Pick",
+    dependencies = {
+      {
+        'echasnovski/mini.extra',
+        version = '*',
+        name = "mini-extra",
+        config = function ()
+          require("mini.extra").setup()
+        end
+      },
+    },
     keys = function ()
       return require("core.mappings").pick
     end,

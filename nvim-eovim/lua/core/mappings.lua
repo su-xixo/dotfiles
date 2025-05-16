@@ -107,6 +107,11 @@ H.pick = {
   { "<leader>Fc", "<cmd>Pick config_dir<CR>", desc = "Find within config_dir" },
 }
 
+H.trailspace = {
+  { "<leader>ts", "<cmd>lua MiniTrailspace.trim()<CR>", desc = "Trail all spaces" },
+  { "<leader>tl", "<cmd>lua MiniTrailspace.trim_last_lines()<CR>", desc = "Trail all empty lines" },
+}
+
 H.formatter = {
   {
     "<leader>mp",

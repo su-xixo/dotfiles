@@ -1,4 +1,8 @@
 local clue = require("mini.clue")
+local _desc = function (d)
+  vim.print(d)
+  return d
+end
 local options = {
   triggers = {
     -- Leader triggers
@@ -39,6 +43,8 @@ local options = {
     clue.gen_clues.registers(),
     -- clue.gen_clues.windows(),
     clue.gen_clues.z(),
+    { mode = 'n', keys = '<leader>f', desc = _desc() },
+    { mode = 'n', keys = '<leader>F', desc = '+ Find' },
   },
 }
 return clue.setup(options)
