@@ -43,9 +43,20 @@ miniIndent.setup({
   symbol = indent_symbol[2],
   options = { try_as_border = true },
 })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = exclude_items,
-  callback = function()
-    vim.b.miniindentscope_disable = true
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = exclude_items,
+--   callback = function()
+--     vim.b.miniindentscope_disable = true
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd({"BufEnter"}, {
+--   callback = function(args)
+--     local ignore_filetype = {
+--       'NvimTree',
+--     }
+--     if vim.tbl_contains(ignore_filetype, vim.bo[args.buf].filetype) then
+--       vim.b.miniindentscope_disable = true
+--     end
+--   end,
+-- })
+
