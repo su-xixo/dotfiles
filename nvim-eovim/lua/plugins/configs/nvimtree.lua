@@ -1,5 +1,13 @@
 local tree = require("nvim-tree")
+local function _on_attack()
+  local api = require("nvim-tree.api")
+  api.config.mappings.default_on_attach()
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+end
 local options = {
+  on_attach = _on_attack(),
   hijack_cursor = true,
   disable_netrw = true,
   auto_reload_on_write = true,
@@ -106,3 +114,5 @@ local options = {
   },
 }
 tree.setup(options)
+
+-- require("nvim-tree.api").git.reload()
