@@ -87,7 +87,7 @@ local options = {
   update_focused_file = {
     enable = true,
     update_root = {
-      enable = true, -- chnage root dir if file is from other location
+      enable = false, -- chnage root dir if file is from other location
       ignore_list = {}, -- this change root-dir
     },
   },
