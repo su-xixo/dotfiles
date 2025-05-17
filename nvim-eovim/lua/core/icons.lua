@@ -40,7 +40,7 @@ end
 H.text_icons = {}
 
 -- vim.print(H.get_icons())
-vim.print(H.get_icons("indent", 1))
+-- vim.print(H.get_icons("indent", 1))
 -- vim.print(H.get_icons('finder'))
 -- vim.print(H.get_icons('finr'))
 return H
