@@ -1,13 +1,37 @@
 local tree = require("nvim-tree")
-local function _on_attack()
-  local api = require("nvim-tree.api")
-  api.config.mappings.default_on_attach()
+local getIcon = require("core.icons").get_icons
+
+local function my_on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
+
+  local lefty = function (want_focus)
+    want_focus = want_focus or false
+    local cur_node = api.tree.get_node_under_cursor()
+    api.node.open.edit(cur_node, {focus = want_focus})
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  -- vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+  -- vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+  -- vim.keymap.set('n', 'l',     api.node.open.edit,                    opts('Open'))
+  vim.keymap.set("n", "l", function () lefty(true) end, opts("open: node + focus on buffer"))
+  vim.keymap.del("n", "L", {buffer = bufnr})
+  vim.keymap.set("n", "L", function () lefty(false) end, opts("open: node + focus on tree"))
+  vim.keymap.set("n", "<Right>", function () lefty(true) end, opts("open: node + focus on buffer"))
+
+  vim.keymap.set("n", "h", api.node.navigate.parent, opts("goto parent node"))
+  vim.keymap.set("n", "<Left>", api.node.navigate.parent, opts("goto parent node"))
 end
+
 local options = {
-  on_attach = _on_attack(),
+  on_attach = my_on_attach,
   hijack_cursor = true,
   disable_netrw = true,
   auto_reload_on_write = true,
@@ -18,6 +42,8 @@ local options = {
     cursorline = false,
     width = 30,
     preserve_window_proportions = true,
+    number = false,
+    relativenumber = false,
   },
   renderer = {
     root_folder_label = false,
@@ -36,24 +62,24 @@ local options = {
     icons = {
       glyphs = {
         default = "󰈚", -- NOTE string: **, 󰈚
-        modified = "󰐖", -- NOTE string: *●*, 󰐖
-        hidden = "󰰀", -- NOTE string: *󰜌*, 󰰀, 󰘓
+        modified = getIcon "modified", -- NOTE string: *●*, 󰐖
+        hidden = getIcon "hidden", -- NOTE string: *󰜌*, 󰰀, 󰘓
         folder = {
-          default = "",
-          empty = "",
-          empty_open = "",
-          open = "",
-          symlink = "",
-          symlink_open = "",
+          default = getIcon "folder_close",
+          empty = getIcon "folder_empty",
+          empty_open = getIcon "folder_empty_open",
+          open = getIcon "folder_open",
+          symlink = getIcon "folder_symlink",
+          symlink_open = getIcon "folder_symlink_open",
         },
         git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
-          renamed = "", -- NOTE , ➜
-          untracked = "󰩴", -- NOTE 󰩴, ★
-          deleted = "",
-          ignored = "◌", -- NOTE ◌, , 
+          unstaged = getIcon "unstaged",
+          staged = getIcon "staged",
+          unmerged = getIcon "unmerged",
+          renamed = getIcon "renamed", -- NOTE , ➜
+          untracked = getIcon "untracked", -- NOTE 󰩴, ★
+          deleted = getIcon "deleted",
+          ignored = getIcon "ignored", -- NOTE ◌, , 
         },
       },
     },
@@ -79,7 +105,7 @@ local options = {
     exclude = {},
   },
   live_filter = {
-    prefix = "[FILTER]: ",
+    prefix = getIcon "folder_filter" .. " ",
     always_show_folders = false, -- show filter folder
   },
   filesystem_watchers = {
