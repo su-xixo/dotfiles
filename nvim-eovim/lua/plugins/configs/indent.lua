@@ -6,6 +6,26 @@ local indent_symbol = {
   "┊",
   "╎",
 }
+local exclude_items = {
+  "NvimTree",
+  "Trouble",
+  "alpha",
+  "dashboard",
+  "fzf",
+  "help",
+  "lazy",
+  "mason",
+  "neo-tree",
+  "nofile",
+  "notify",
+  "snacks_dashboard",
+  "snacks_notif",
+  "snacks_terminal",
+  "snacks_win",
+  "toggleterm",
+  "trouble",
+
+}
 
 indent.setup({
   indent = {
@@ -14,22 +34,7 @@ indent.setup({
   },
   scope = { show_start = false, show_end = false },
   exclude = {
-    filetypes = {
-      "Trouble",
-      "alpha",
-      "dashboard",
-      "help",
-      "lazy",
-      "mason",
-      "neo-tree",
-      "notify",
-      "snacks_dashboard",
-      "snacks_notif",
-      "snacks_terminal",
-      "snacks_win",
-      "toggleterm",
-      "trouble",
-    },
+    filetypes = exclude_items,
   },
 })
 
@@ -38,23 +43,7 @@ miniIndent.setup({
   options = { try_as_border = true },
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "Trouble",
-    "alpha",
-    "dashboard",
-    "fzf",
-    "help",
-    "lazy",
-    "mason",
-    "neo-tree",
-    "notify",
-    "snacks_dashboard",
-    "snacks_notif",
-    "snacks_terminal",
-    "snacks_win",
-    "toggleterm",
-    "trouble",
-  },
+  pattern = exclude_items,
   callback = function()
     vim.b.miniindentscope_disable = true
   end,
