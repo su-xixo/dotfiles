@@ -16,7 +16,7 @@ return {
       vim.opt.termguicolors = true
     end,
     opts = function()
-      return require "nvchad.configs.nvimtree"
+      return require "plugins.configs.nvimtree"
     end,
   },
   {
@@ -52,8 +52,18 @@ return {
     "echasnovski/mini.ai",
     version = '*',
     name = "mini-ai",
+    keys = { "v" },
     config = function ()
       return require "plugins.configs.mini.ai"
+    end
+  },
+  {
+    "echasnovski/mini.splitjoin",
+    version = '*',
+    keys = { "v" },
+    name = "mini-splitjoin",
+    config = function ()
+      return require "plugins.configs.mini.splitjoin"
     end
   },
   {
