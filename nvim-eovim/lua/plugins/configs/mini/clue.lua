@@ -1,8 +1,29 @@
+local getIcons = require("core.icons").get_icons
 local clue = require("mini.clue")
-local _desc = function (d)
-  vim.print(d)
-  return d
+local _desc = function (mode, icon, pattern, discription)
+  mode = mode or "n"
+  pattern = pattern or ''
+  -- local icon = getIcons "finder"
+  local count = function ()
+    local keymaps = vim.api.nvim_get_keymap(mode)
+    local f_keymaps = vim.iter(keymaps):filter(function (item)
+      return item.lhs:match(pattern)
+    end):totable()
+    return vim.tbl_count(f_keymaps)
+  end
+  local desc = string.format("+%d %s %s", count(), getIcons(icon), discription) -- +(count) A discription
+  return desc
 end
+
+local count = function (mode, pattern)
+  local keymaps = vim.api.nvim_get_keymap(mode)
+  local f_keymaps = vim.iter(keymaps):filter(function (item)
+    return item.lhs:match(pattern)
+  end):totable()
+  return vim.tbl_count(f_keymaps)
+end
+
+
 local options = {
   triggers = {
     -- Leader triggers
@@ -43,8 +64,8 @@ local options = {
     clue.gen_clues.registers(),
     -- clue.gen_clues.windows(),
     clue.gen_clues.z(),
-    { mode = 'n', keys = '<leader>f', desc = _desc() },
-    { mode = 'n', keys = '<leader>F', desc = '+ Find' },
+    { mode = 'n', keys = '<leader>f', desc = string.format("+%d %s %s", count("n", '^ f.'), getIcons('finder'), "Find") },
+    { mode = 'n', keys = '<leader>F', desc = string.format("+%d %s %s", count("n", '^ F.'), getIcons('finder'), "Find") },
   },
 }
 return clue.setup(options)
