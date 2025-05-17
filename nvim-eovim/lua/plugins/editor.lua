@@ -60,7 +60,7 @@ return {
   {
     "echasnovski/mini.splitjoin",
     version = '*',
-    keys = { "v" },
+    keys = { "gS" },
     name = "mini-splitjoin",
     config = function ()
       return require "plugins.configs.mini.splitjoin"
