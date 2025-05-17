@@ -1,3 +1,4 @@
+local getIcon = require("core.icons").get_icons
 local indent = require('ibl')
 local miniIndent = require('mini.indentscope')
 local indent_symbol = {
@@ -29,8 +30,8 @@ local exclude_items = {
 
 indent.setup({
   indent = {
-    char = indent_symbol[2],
-    tab_char = indent_symbol[2],
+    char = getIcon("indent", 2),
+    tab_char = getIcon("indent", 2),
   },
   scope = { show_start = false, show_end = false },
   exclude = {
