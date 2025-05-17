@@ -8,6 +8,18 @@ return {
     end
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    init = function ()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+      vim.opt.termguicolors = true
+    end,
+    opts = function()
+      return require "nvchad.configs.nvimtree"
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     cmd = { "Neotree" },
