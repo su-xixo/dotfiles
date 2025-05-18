@@ -90,3 +90,4 @@ alias on="shutdown -r now"
 alias v="nvim" # default neovim
 alias vs='NVIM_APPNAME=nvim-simpler nvim' # Simpler
 alias ve='NVIM_APPNAME=nvim-eovim nvim' # eovim
+alias vee='NVIM_APPNAME=nvim-eeovim nvim' # eovim

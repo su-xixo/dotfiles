@@ -41,6 +41,8 @@ M.initial = function()
   o.backup = false
 
   -- perfomance
+  o.timeout = true
+  o.ttimeout = true
   o.updatetime = 250
   o.timeoutlen = 300
   o.lazyredraw = true
