@@ -1,12 +1,7 @@
 local getIcon = require("core.icons").get_icons
-local indent = require('ibl')
-local miniIndent = require('mini.indentscope')
-local indent_symbol = {
-  "▏",
-  "│",
-  "┊",
-  "╎",
-}
+-- local indent = require('ibl')
+-- local miniIndent = require('mini.indentscope')
+local indentmini = require("indentmini")
 local exclude_items = {
   "NvimTree",
   "Trouble",
@@ -28,20 +23,25 @@ local exclude_items = {
 
 }
 
-indent.setup({
-  indent = {
-    char = getIcon("indent", 2),
-    tab_char = getIcon("indent", 2),
-  },
-  scope = { show_start = false, show_end = false },
-  exclude = {
-    filetypes = exclude_items,
-  },
-})
+-- indent.setup({
+--   indent = {
+--     char = getIcon("indent", 2),
+--     tab_char = getIcon("indent", 2),
+--   },
+--   scope = { show_start = false, show_end = false },
+--   exclude = {
+--     filetypes = exclude_items,
+--   },
+-- })
+--
+-- miniIndent.setup({
+--   symbol = indent_symbol[2],
+--   options = { try_as_border = true },
+-- })
 
-miniIndent.setup({
-  symbol = indent_symbol[2],
-  options = { try_as_border = true },
+indentmini.setup({
+  char = getIcon("indent", 1),
+  exclude = exclude_items,
 })
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = exclude_items,

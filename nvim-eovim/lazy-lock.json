@@ -1,7 +1,7 @@
 {
   "conform.nvim": { "branch": "master", "commit": "a6f5bdb78caa305496357d17e962bbc4c0b392e2" },
   "gruvbox.nvim": { "branch": "main", "commit": "61b0b3be2f0cfd521667403a0367298144d6c165" },
-  "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
+  "indentmini.nvim": { "branch": "main", "commit": "bc6b808106315f349cdbb460a6260a97b7feaab9" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "5477d67a5ca12b704f2a8a55a057fc79750f3dbb" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "75d60a8f928decd8b38897f80849768b7c540a5b" },
@@ -16,7 +16,6 @@
   "mini-pick": { "branch": "main", "commit": "fc0d862a044af97f7850535fc8799ab38a223fe6" },
   "mini-splitjoin": { "branch": "main", "commit": "3e92f6764e770ba392325cad3a4497adcada695f" },
   "mini-trailspace": { "branch": "main", "commit": "3a328e62559c33014e422fb9ae97afc4208208b1" },
-  "mini.indentscope": { "branch": "main", "commit": "613df2830d7faeae7483ba2e736683154b95921e" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "f481de16a0eb59c985abac8985e3f2e2f75b4875" },
   "nui.nvim": { "branch": "main", "commit": "f535005e6ad1016383f24e39559833759453564e" },
   "nvim-tree.lua": { "branch": "master", "commit": "be5b788f2dc1522c73fb7afad9092331c8aebe80" },
