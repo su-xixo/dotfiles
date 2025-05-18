@@ -3,7 +3,7 @@ return {
     'echasnovski/mini.basics', version = '*',
     name = "mini-basics",
     event = "VeryLazy",
-    config = function ()
+    cnfig = function ()
       return require("plugins.configs.mini.basics")
     end
   },
@@ -53,7 +53,8 @@ return {
     "echasnovski/mini.ai",
     version = '*',
     name = "mini-ai",
-    keys = { "v" },
+    -- keys = { "v" },
+    event = { "BufReadPost", "BufNewFile" },
     config = function ()
       return require "plugins.configs.mini.ai"
     end
@@ -61,7 +62,7 @@ return {
   {
     "echasnovski/mini.splitjoin",
     version = '*',
-    keys = { "gS" },
+    keys = { { mode = "n", "gS" }, { mode = "v", "gS" } },
     name = "mini-splitjoin",
     config = function ()
       return require "plugins.configs.mini.splitjoin"
@@ -76,6 +77,15 @@ return {
     config = function ()
       require("mini-trailspace").setup({})
     end
+  },
+  {
+    "echasnovski/mini.surround",
+    version = '*',
+    name = "mini-surround",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      return require "plugins.configs.mini.surround"
+    end,
   },
   {
     "echasnovski/mini.pick",
