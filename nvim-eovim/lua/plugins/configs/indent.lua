@@ -40,7 +40,7 @@ local exclude_items = {
 -- })
 
 indentmini.setup({
-  char = getIcon("indent", 1),
+  char = getIcon("indent", 2),
   exclude = exclude_items,
 })
 -- vim.api.nvim_create_autocmd("FileType", {
