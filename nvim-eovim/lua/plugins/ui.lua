@@ -37,4 +37,13 @@ return {
       return require "plugins.configs.indent"
     end,
   },
+  {
+    'echasnovski/mini.statusline',
+    version = '*',
+    name = "mini-statusline",
+    event = "VeryLazy",
+    config = function()
+      require("mini.statusline").setup()
+    end,
+  },
 }
