@@ -15,7 +15,7 @@ require("lazy").setup({
   },
   install = {
     missing = true,
-    colorscheme = { "habamax", "catppuccin" },
+    colorscheme = { "habamax", "gruvbox", "kanagawa", "catppuccin" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui

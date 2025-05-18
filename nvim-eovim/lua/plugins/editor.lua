@@ -43,7 +43,8 @@ return {
     "echasnovski/mini.clue",
     version = '*',
     name = "mini-clue",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    keys = { "<space>", "g", "z", "\"", "\'" },
     config = function ()
       return require "plugins.configs.mini.clue"
     end

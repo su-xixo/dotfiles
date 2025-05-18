@@ -8,7 +8,7 @@ basics.setup({
   mappings = {
     basic = true,
     option_toggle_prefix = [[\]],
-    windows = false,
+    windows = true,
     move_with_alt = true,
   },
   autocommands = {

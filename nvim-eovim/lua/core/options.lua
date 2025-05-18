@@ -5,7 +5,7 @@ local M = {}
 M.initial = function()
   -- custom global variable
   g.have_nerd_font = false
-  g.border_style = "single" ---@type "single"|"double"|"rounded"
+  g.border_style = "none" ---@type "single"|"double"|"rounded"|"none"
 
   -- general setting
   o.number = true

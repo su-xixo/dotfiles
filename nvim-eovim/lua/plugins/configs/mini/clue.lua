@@ -68,4 +68,15 @@ local options = {
     { mode = 'n', keys = '<leader>F', desc = string.format("+%d %s %s", count("n", '^ F.'), getIcons('finder'), "Find") },
   },
 }
+options.window = {
+  -- Floating window config
+  config = {},
+
+  -- Delay before showing clue window
+  delay = 500,
+
+  -- Keys to scroll inside the clue window
+  scroll_down = '<C-d>',
+  scroll_up = '<C-u>',
+}
 return clue.setup(options)
