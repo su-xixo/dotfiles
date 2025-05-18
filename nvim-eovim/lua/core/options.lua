@@ -50,6 +50,8 @@ M.initial = function()
   o.list = true
   o.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
   o.showmode = false
+  o.laststatus = 3
+  o.statusline = "%f %h%m%r%=%y [%l:%c] %P"
 
   -- window management
   o.splitright = true
