@@ -3,7 +3,7 @@ return {
     "echasnovski/mini.files",
     version = "*",
     name = "mini-files",
-    init = function ()
+    init = function()
       vim.cmd("colorscheme kanagawa")
     end,
     keys = require("core.mappings").getmap("tree", "minifiles"),
@@ -12,11 +12,20 @@ return {
     end,
   },
   {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "windwp/nvim-autopairs",
+    event = { "InsertEnter" },
+    config = function()
+      require("nvim-autopairs").setup()
+    end,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     name = "telescope",
     cmd = { "Telescope" },
     keys = {},
-    config = ...
+    config = function()
+      require("plugins.configs.telescope")
+    end,
   },
 }
