@@ -1,4 +1,5 @@
 alacritty
+tree-sitter
 bat
 btop
 eza
