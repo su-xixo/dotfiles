@@ -12,6 +12,7 @@ lua-language-server
 neovim
 nodejs
 npm
+openssh
 qutebrowser
 rust
 starship
