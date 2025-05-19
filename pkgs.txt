@@ -1,5 +1,4 @@
 alacritty
-tree-sitter
 bat
 btop
 eza
@@ -19,6 +18,7 @@ starship
 stylua
 taplo
 tmux
+tree-sitter
 ttf-jetbrains-mono-nerd
 vscoium:yay
 wl-clipboard
