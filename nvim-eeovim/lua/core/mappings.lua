@@ -5,7 +5,7 @@ H.active.basic = {
   { "jk", "<Esc>", mode = { "i" }, desc = "Escape insert mode" },
   { "jj", "<Esc>", mode = { "i" }, desc = "Escape insert mode" },
   { "<leader>w", "<cmd>up<CR>", mode = { "i", "n", "x" }, desc = "Write" },
-  { "<A-q>", "<cmd>q<CR>", mode = { "i", "n", "x" }, desc = "Quite" },
+  { "<A-q><A-q>", "<cmd>q<CR>", mode = { "i", "n", "x" }, desc = "Quite" },
   { "<A-q><A-a>", "<cmd>q!<CR>", mode = { "i", "n", "x" }, desc = "Quite" },
 
   { "<C-b>", "<ESC>^i", mode = { "i" }, desc = "move beginning of line" },
@@ -255,7 +255,15 @@ H.formatter = {
     mode = { "n", "v" },
     desc = "Format buffer",
   },
+}
+
+H.tree = {
+  nvimtree = {
+    { "<leader>E", "<cmd>NvimTreeToggle<CR>", desc = "nvimtree toggle window" },
+    { "<C-n>", "<cmd>NvimTreeFocus<CR>", desc = "nvimtree focus window" },
   },
+  neotree = {},
+  minifiles = H.mini.files,
 }
 
 H.setmap = function(keyTable)
@@ -272,15 +280,6 @@ H.setmap = function(keyTable)
     end
   end
 end
-
-H.tree = {
-  nvimtree = {
-    { "<leader>E", "<cmd>NvimTreeToggle<CR>", desc = "nvimtree toggle window" },
-    { "<C-n>", "<cmd>NvimTreeFocus<CR>", desc = "nvimtree focus window" },
-  },
-  neotree = {},
-  minifiles = H.mini.files,
-}
 
 H.getmap = function(...)
   if select("#", ...) == 0 then
@@ -301,7 +300,7 @@ H.active_map = function()
   end
 end
 
-vim.print(H.getmap("mini", "pick"))
--- vim.print(H.getmap("nvchad"))
+-- vim.print(H.getmap("mini", "pick"))
+-- vim.print(H.getmap("formatter"))
 
 return H
