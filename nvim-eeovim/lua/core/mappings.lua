@@ -255,17 +255,6 @@ H.formatter = {
     mode = { "n", "v" },
     desc = "Format buffer",
   },
-  {
-    "<C-m><C-p>",
-    function()
-      require("conform").format({
-        async = true,
-        lsp_fallback = true,
-        timeout_ms = 1000,
-      })
-    end,
-    mode = { "i" },
-    desc = "Format buffer",
   },
 }
 
