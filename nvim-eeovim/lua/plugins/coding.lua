@@ -44,4 +44,14 @@ return {
       return require("plugins.configs.formatter")
     end,
   },
+  {
+    "saghen/blink.cmp",
+    -- lazy = false,
+    version = "1.*",
+    event = "InsertEnter",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function ()
+      require("plugins.configs.blink")
+    end
+  },
 }
