@@ -1,4 +1,4 @@
-local treesitter_context = require("treesitter-context")
+-- local treesitter_context = require("treesitter-context")
 local treesitter = require("nvim-treesitter.configs")
 local context_option = {
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -106,4 +106,4 @@ local options = {
 
 vim.treesitter.language.register("bash", "zsh")
 treesitter.setup(options)
-treesitter_context.setup(context_option)
+-- treesitter_context.setup(context_option)
