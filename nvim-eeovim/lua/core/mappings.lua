@@ -289,7 +289,15 @@ H.getmap = function(...)
     if not item ~= nil and vim.islist(item) then
       return item
     else
-      vim.print("Nothing found. check Neovim 'core/mappings.lua'")
+      vim.print(
+        vim.notify(
+          string.format(
+            "For '%s', Found nothing. check 'core/mappings.lua'",
+            ...,
+            vim.log.levels.WARN
+          )
+        )
+      )
       return {}
     end
   end
