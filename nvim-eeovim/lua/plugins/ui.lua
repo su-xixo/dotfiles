@@ -1,5 +1,13 @@
 return {
   {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function ()
+      require("plugins.configs.colorscheme.kanagawa")
+    end
+  },
+  {
     "nvimdev/indentmini.nvim",
     event = { "BufReadPre", "BufNewFile" },
     init = function()
