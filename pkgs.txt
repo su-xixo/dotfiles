@@ -20,6 +20,7 @@ taplo
 tmux
 ttf-jetbrains-mono-nerd
 vscoium:yay
+wl-clipboard
 yazi
 zoxide
 zsh
