@@ -34,13 +34,31 @@ H.active.manager = {
   { "<leader>om", "<cmd>Mason<CR>", desc = "Open mason manager" },
 }
 
-H.tree = {
-  nvimtree = {
-    { "<leader>E", "<cmd>NvimTreeToggle<CR>", desc = "nvimtree toggle window" },
-    { "<C-n>", "<cmd>NvimTreeFocus<CR>", desc = "nvimtree focus window" },
+H.mini = {
+  files = {
+    {
+      "<leader>e",
+      function()
+        if not require("mini.files").close() then
+          require("mini.files").open()
+        end
+      end,
+      desc = "Mini file explorer",
+    },
   },
-  neotree = {},
-  minifiles = H.mini.files,
+  pick = {},
+  trailspace = {
+    {
+      "<leader>ts",
+      "<cmd>lua MiniTrailspace.trim()<CR>",
+      desc = "Trail all spaces",
+    },
+    {
+      "<leader>tl",
+      "<cmd>lua MiniTrailspace.trim_last_lines()<CR>",
+      desc = "Trail all empty lines",
+    },
+  },
 }
 
 H.nvchad = {
@@ -224,7 +242,7 @@ H.pick = {
   { "<leader>Fc", "<cmd>Pick config_dir<CR>", desc = "Find within config_dir" },
 }
 
-H.H.formatter = {
+H.formatter = {
   {
     "<leader>mp",
     function()
@@ -266,31 +284,13 @@ H.setmap = function(keyTable)
   end
 end
 
-H.mini = {
-  files = {
-    {
-      "<leader>e",
-      function()
-        if not require("mini.files").close() then
-          require("mini.files").open()
-        end
-      end,
-      desc = "Mini file explorer",
-    },
+H.tree = {
+  nvimtree = {
+    { "<leader>E", "<cmd>NvimTreeToggle<CR>", desc = "nvimtree toggle window" },
+    { "<C-n>", "<cmd>NvimTreeFocus<CR>", desc = "nvimtree focus window" },
   },
-  pick = {},
-  trailspace = {
-    {
-      "<leader>ts",
-      "<cmd>lua MiniTrailspace.trim()<CR>",
-      desc = "Trail all spaces",
-    },
-    {
-      "<leader>tl",
-      "<cmd>lua MiniTrailspace.trim_last_lines()<CR>",
-      desc = "Trail all empty lines",
-    },
-  },
+  neotree = {},
+  minifiles = H.mini.files,
 }
 
 H.getmap = function(...)
@@ -298,7 +298,7 @@ H.getmap = function(...)
     vim.print("Must pass key...")
   else
     local item = vim.tbl_get(H, ...)
-    if not vim.fn.empty(item) and vim.islist(item) then
+    if not vim.tbl_isempty(item) and vim.islist(item) then
       return item
     else
       return "Nothing found. check Neovim 'core/mappings.lua'"
@@ -313,6 +313,6 @@ H.active_map = function()
 end
 
 vim.print(H.getmap("mini", "pick"))
-vim.print(H.getmap("nvchad"))
+-- vim.print(H.getmap("nvchad"))
 
 return H
