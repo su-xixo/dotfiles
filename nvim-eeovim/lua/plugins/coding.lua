@@ -38,9 +38,8 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    keys = function()
-      return require("core.mappings").formatter
-    end,
+    cmd = "ConformInfo",
+    keys = require("core.mappings").getmap("formatter"),
     config = function()
       return require("plugins.configs.formatter")
     end,
