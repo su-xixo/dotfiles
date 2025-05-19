@@ -286,7 +286,7 @@ H.getmap = function(...)
     vim.print("Must pass key...")
   else
     local item = vim.tbl_get(H, ...)
-    if not vim.tbl_isempty(item) and vim.islist(item) then
+    if not item ~= nil and vim.islist(item) then
       return item
     else
       vim.print("Nothing found. check Neovim 'core/mappings.lua'")
@@ -302,6 +302,6 @@ H.active_map = function()
 end
 
 -- vim.print(H.getmap("mini", "pick"))
--- vim.print(H.getmap("formatter"))
+-- vim.print(H.getmap("forma"))
 
 return H
