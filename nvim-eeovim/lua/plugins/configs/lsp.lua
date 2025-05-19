@@ -26,7 +26,7 @@ H.on_init = function(client, _)
 end
 
 H.capabilities = vim.lsp.protocol.make_client_capabilities()
-
+H.capabilities = vim.tbl_deep_extend('force', H.capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
 H.capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
