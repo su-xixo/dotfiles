@@ -23,7 +23,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     name = "telescope",
     cmd = { "Telescope" },
-    keys = {},
+    keys = require("core.mappings").getmap("picker", "telescope"),
     config = function()
       require("plugins.configs.telescope")
     end,

@@ -24,6 +24,11 @@ H.icons = {
     [3] = "┊",
     [4] = "╎",
   },
+  picker = {
+    prompt_prefix = "",
+    selection_caret = "❯",
+    multi_icon = "▏",
+  },
 }
 H.get_icons = function (...)
   if select('#', ...) == 0 then

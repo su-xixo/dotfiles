@@ -242,6 +242,51 @@ H.pick = {
   { "<leader>Fc", "<cmd>Pick config_dir<CR>", desc = "Find within config_dir" },
 }
 
+H.telescope = function()
+  local ok, builtins = pcall(require, "telescope.builtin")
+  if not ok then
+    return {}
+  end
+  return {
+    -- stylua: ignore start
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+    { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Find buffers" },
+    { "<leader>fr", "<cmd>Telescope resume<CR>", desc = "Resume finding" },
+    { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Find help" },
+    { "<leader>fo", "<cmd>Telescope oldfiles<CR>", desc = "Find oldfiles" },
+    { "<leader>fd", "<cmd>Telescope diagnostics bufnr=0<CR>", desc = "Find current diagnostic" },
+    { "<leader>fD", "<cmd>Telescope diagnostics<CR>", desc = "Find all diagnostic" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep live whole project" },
+    { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Grep live in current buffer" },
+    { "<leader>fB", "<cmd>Telescope builtin<CR>", desc = "Find buildins" },
+    { "<leader>Fn", "<cmd>Telescope files cwd=~/.config/nvim cwd_prompt=false prompt=\\ <CR>", desc = "Find within neovim config" },
+    { "<leader>Fd", "<cmd>Telescope files cwd=~/dotfiles cwd_prompt=false prompt=󰘓\\ <CR>", desc = "Find within dotfiles" },
+    { "<leader>Fc", "<cmd>Telescope files cwd=~/.config cwd_prompt=false prompt=\\ <CR>", desc = "Find within config_dir" },
+    -- fzf related
+    { "<leader>fw", function ()
+      local current_word = vim.fn.expand("<cword>")
+      builtins.grep_string({
+        search = current_word
+      })
+    end, desc = "Grep current word" },
+    { "<leader>fW", function ()
+      local current_word = vim.fn.expand("<cWORD>")
+      builtins.grep_string({
+        search = current_word
+      })
+    end, desc = "Grep current WORD" },
+    { "<leader>sk", "<cmd>Telescope keymaps<CR>", desc = "Search keymaps" },
+    { "<leader>sh", "<cmd>Telescope highlights<CR>", desc = "Search highlights" },
+    --stylua: ignore end
+  }
+end
+
+H.picker = {
+  telescope = H.telescope(),
+  fzf_lua = H.fzf_lua,
+  pick = H.pick,
+}
+
 H.formatter = {
   {
     "<leader>mp",
