@@ -10,4 +10,19 @@ return {
       return require("plugins.configs.indent")
     end,
   },
+  {
+    "echasnovski/mini.icons",
+    version = "*",
+    event = "VeryLazy",
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        package.loaded["nvim-web-devicons"] = {}
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
+    config = function()
+      require("mini.icons").setup()
+    end,
+  },
 }
