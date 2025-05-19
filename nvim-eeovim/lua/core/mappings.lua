@@ -4,7 +4,7 @@ H.active = {}
 H.active.basic = {
   { "jk", "<Esc>", mode = { "i" }, desc = "Escape insert mode" },
   { "jj", "<Esc>", mode = { "i" }, desc = "Escape insert mode" },
-  { "<leader>w", "<cmd>up<CR>", mode = { "i", "n", "x" }, desc = "Write" },
+  { "<leader>w", "<cmd>up<CR>", mode = { "n", "x" }, desc = "Write" },
   { "<A-q><A-q>", "<cmd>q<CR>", mode = { "i", "n", "x" }, desc = "Quite" },
   { "<A-q><A-a>", "<cmd>q!<CR>", mode = { "i", "n", "x" }, desc = "Quite" },
 
