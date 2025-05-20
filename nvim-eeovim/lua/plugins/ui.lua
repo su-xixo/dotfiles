@@ -3,9 +3,9 @@ return {
     "rebelot/kanagawa.nvim",
     priority = 1000,
     lazy = false,
-    config = function ()
+    config = function()
       require("plugins.configs.colorscheme.kanagawa")
-    end
+    end,
   },
   {
     "nvimdev/indentmini.nvim",
@@ -31,6 +31,15 @@ return {
     end,
     config = function()
       require("mini.icons").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.hipatterns",
+    version = "*",
+    name = "mini-hipatterns",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      return require("plugins.configs.mini.hipatterns")
     end,
   },
 }
