@@ -1,6 +1,6 @@
 local H = {}
-H.icons = {
-  notfound = '󰱞',
+H = {
+  notfound = "󰱞",
   finder = "",
   folder_close = "",
   folder_empty = "",
@@ -25,20 +25,29 @@ H.icons = {
     [4] = "╎",
   },
   picker = {
-    prompt_prefix = "",
-    selection_caret = "❯",
-    multi_icon = "▏",
+    prompt = {
+      [1] = "󰭎",
+      [2] = " ",
+    },
+    select = {
+      [1] = "❯",
+      [2] = "▎",
+      [3] = "",
+    },
+    multi = {
+      [1] = "+",
+    },
   },
 }
-H.get_icons = function (...)
-  if select('#', ...) == 0 then
+H.get_icons = function(...)
+  if select("#", ...) == 0 then
     vim.print("Pass icon key...")
   else
-    local item = vim.tbl_get(H.icons, ...)
+    local item = vim.tbl_get(H, ...)
     if item ~= nil then
       return item
     else
-      return vim.tbl_get(H.icons, "notfound")
+      return vim.tbl_get(H, "notfound")
     end
   end
 end
