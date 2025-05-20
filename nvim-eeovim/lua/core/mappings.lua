@@ -243,10 +243,10 @@ H.pick = {
 }
 
 H.telescope = function()
-  local ok, builtins = pcall(require, "telescope.builtin")
-  if not ok then
-    return {}
-  end
+  -- local ok, builtins = pcall(require, "telescope.builtin")
+  -- if not ok then
+  --   return {}
+  -- end
   return {
     -- stylua: ignore start
     { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
@@ -259,19 +259,19 @@ H.telescope = function()
     { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep live whole project" },
     { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Grep live in current buffer" },
     { "<leader>fB", "<cmd>Telescope builtin<CR>", desc = "Find buildins" },
-    { "<leader>Fn", "<cmd>Telescope files cwd=~/.config/nvim cwd_prompt=false prompt=\\ <CR>", desc = "Find within neovim config" },
-    { "<leader>Fd", "<cmd>Telescope files cwd=~/dotfiles cwd_prompt=false prompt=󰘓\\ <CR>", desc = "Find within dotfiles" },
-    { "<leader>Fc", "<cmd>Telescope files cwd=~/.config cwd_prompt=false prompt=\\ <CR>", desc = "Find within config_dir" },
+    { "<leader>Fn", "<cmd>Telescope find_files cwd=~/.config/nvim prompt_prefix=\\ <CR>", desc = "Find within neovim config" },
+    { "<leader>Fd", "<cmd>Telescope find_files cwd=~/dotfiles prompt_prefix=󰘓\\ <CR>", desc = "Find within dotfiles" },
+    { "<leader>Fc", "<cmd>Telescope find_files cwd=~/.config prompt_prefix=\\ <CR>", desc = "Find within config_dir" },
     -- fzf related
-    { "<leader>fw", function ()
+    { "<leader>sw", function ()
       local current_word = vim.fn.expand("<cword>")
-      builtins.grep_string({
+      require('telescope.builtin').grep_string({
         search = current_word
       })
     end, desc = "Grep current word" },
-    { "<leader>fW", function ()
+    { "<leader>sW", function ()
       local current_word = vim.fn.expand("<cWORD>")
-      builtins.grep_string({
+      require('telescope.builtin').grep_string({
         search = current_word
       })
     end, desc = "Grep current WORD" },
@@ -307,7 +307,19 @@ H.tree = {
     { "<leader>E", "<cmd>NvimTreeToggle<CR>", desc = "nvimtree toggle window" },
     { "<C-n>", "<cmd>NvimTreeFocus<CR>", desc = "nvimtree focus window" },
   },
-  neotree = {},
+  neotree = {
+    {
+      "<leader>E",
+      function()
+        require("neo-tree.command").execute({
+          toggle = true,
+          dir = vim.fn.getcwd(),
+        })
+      end,
+      desc = "NeoTree toggle (cwd)",
+    },
+    { "<C-n>", "<leader>E", desc = "NeoTree toggle (cwd)", remap = true },
+  },
   minifiles = H.mini.files,
 }
 
