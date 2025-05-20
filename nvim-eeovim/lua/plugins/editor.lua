@@ -12,6 +12,19 @@ return {
     end,
   },
   {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    cmd = "Neotree",
+    keys = require("core.mappings").getmap("tree", "neotree"),
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    config = function()
+      require("plugins.configs.neo-tree")
+    end,
+  },
+  {
     "windwp/nvim-autopairs",
     event = { "InsertEnter" },
     config = function()
@@ -20,10 +33,15 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = true,
+    event = "BufEnter",
     name = "telescope",
     cmd = { "Telescope" },
     keys = require("core.mappings").getmap("picker", "telescope"),
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
     config = function()
       require("plugins.configs.telescope")
     end,
