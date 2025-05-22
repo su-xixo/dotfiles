@@ -51,7 +51,7 @@ g.loaded_ruby_provider = 0
 
 
 -- Disable "~" characters at end of buffer
-o.fillchars = {
+opt.fillchars = {
   horiz = "━",
   horizup = "┻",
   horizdown = "┳",
