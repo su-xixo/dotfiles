@@ -1,5 +1,14 @@
 return {
   {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  {
     "gerazov/toggle-bool.nvim",
     keys = {
       { "<leader>tt", desc = "toggle bool" },
