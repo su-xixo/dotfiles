@@ -49,3 +49,21 @@ g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
+
+-- Disable "~" characters at end of buffer
+o.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┨",
+  vertright = "┣",
+  verthoriz = "╋",
+  fold = "⠀",
+  eob = " ",
+  diff = "┃",
+  msgsep = "‾",
+  foldsep = "│",
+  foldclose = "▶",
+  foldopen = "▼",
+}
