@@ -49,9 +49,17 @@ return {
     -- lazy = false,
     version = "1.*",
     event = "InsertEnter",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    config = function ()
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      -- {
+      --   "saghen/blink.compat",
+      --   version = "*",
+      --   lazy = true,
+      --   opts = {},
+      -- },
+    },
+    config = function()
       require("plugins.configs.blink")
-    end
+    end,
   },
 }
