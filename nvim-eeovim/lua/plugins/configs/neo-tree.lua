@@ -59,6 +59,7 @@ local options = {
   window = {
     width = 30,
     mappings = {
+      ["g?"] = "show_help",
       ["<space>"] = false,
       ["<Esc>"] = {
         function(state)
@@ -72,6 +73,7 @@ local options = {
         end,
         desc = "close floating window+tree",
       },
+      ["I"] = "toggle_gitignore",
       ["zC"] = "close_all_nodes",
       ["zM"] = "close_all_subnodes",
       ["zO"] = "expand_all_nodes",
