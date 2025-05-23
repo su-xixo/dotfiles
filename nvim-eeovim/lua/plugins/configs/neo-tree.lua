@@ -1,3 +1,4 @@
+local icons = require('core.icons')
 local neotree = require("neo-tree")
 local options = {
   sources = {
@@ -26,31 +27,31 @@ local options = {
     },
     indent = {
       with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-      expander_collapsed = "",
-      expander_expanded = "",
+      expander_collapsed = icons.tree.collapse[1],
+      expander_expanded = icons.tree.expand[1],
       expander_highlight = "NeoTreeExpander",
     },
     icon = {
-      folder_closed = "",
-      folder_open = "",
-      folder_empty = "󰉖",
-      folder_empty_open = "󰷏",
+      folder_closed = icons.tree.folder.close,
+      folder_open = icons.tree.folder.open,
+      folder_empty = icons.tree.folder.empty_close,
+      folder_empty_open = icons.tree.folder.empty_open,
       default = "*",
       highlight = "NeoTreeFileIcon",
     },
     git_status = {
       symbols = {
         -- Change type
-        added = "✚", -- NOTE: you can set any of these to an empty string to not show them
-        deleted = "✖",
-        modified = "",
-        renamed = "󰁕",
+        added = icons.git.added, -- NOTE: you can set any of these to an empty string to not show them
+        deleted = icons.git.deleted,
+        modified = icons.git.modified,
+        renamed = icons.git.renamed,
         -- Status type
-        untracked = "",
-        ignored = "",
-        unstaged = "󰄱",
-        staged = "",
-        conflict = "",
+        untracked = icons.git.untracked[5],
+        ignored = icons.git.ignored[1],
+        unstaged = icons.git.unstaged[1],
+        staged = icons.git.staged[1],
+        conflict = icons.git.conflict[1],
       },
       align = "right",
     },
