@@ -71,11 +71,27 @@ local options = {
         end,
         desc = "close floating window+tree",
       },
+      ["zC"] = "close_all_nodes",
+      ["zM"] = "close_all_subnodes",
+      ["zO"] = "expand_all_nodes",
+      ["zR"] = "expand_all_subnodes",
+      ["l"] = "open",
+      ["h"] = {
+        function(state)
+          local node = state.tree:get_node()
+          require("neo-tree.ui.renderer").focus_node(
+            state,
+            node:get_parent_id()
+          )
+        end,
+        desc = "Navigate parent node",
+      },
+      -- ["g"] = function(state)
+      --   -- vim.print(state)
+      --   local node = state.tree:get_node()
+      --   vim.print(node)
+      -- end,
     },
-    ["zC"] = "close_all_nodes",
-    ["zM"] = "close_all_subnodes",
-    ["zO"] = "expand_all_nodes",
-    ["zR"] = "expand_all_subnodes",
   },
 }
 vim.api.nvim_create_autocmd("TermClose", {
