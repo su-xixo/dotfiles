@@ -9,3 +9,6 @@ if command -v git &?/dev/null; then
   abbr gpo='git pull origin main'
   abbr gPo='git push origin main'
 fi
+
+# Nvim Abbrevations
+abbr ee='NVIM_APPNAME=nvim-stable nvim'
