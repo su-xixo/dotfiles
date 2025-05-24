@@ -1,5 +1,14 @@
 return {
   {
+    "echasnovski/mini.align",
+    enabled = true,
+    event = { "BufReadPost", "BufWritePost" },
+    version = "*",
+    config = function()
+      require("mini.align").setup({})
+    end,
+  },
+  {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
     opts = {
