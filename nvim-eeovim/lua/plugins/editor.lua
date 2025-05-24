@@ -32,6 +32,12 @@ return {
     end,
   },
   {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    keys = require("core.mappings").getmap("trouble"),
+    opts = {},
+  },
+  {
     "nvim-telescope/telescope.nvim",
     lazy = true,
     event = "BufEnter",
@@ -41,6 +47,7 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      "nvim-telescope/telescope-symbols.nvim",
     },
     config = function()
       require("plugins.configs.telescope")
