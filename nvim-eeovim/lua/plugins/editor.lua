@@ -53,4 +53,21 @@ return {
       require("plugins.configs.telescope")
     end,
   },
+  {
+    "echasnovski/mini.hipatterns",
+    event = { "BufReadPost", "BufWritePost" },
+    version = "*",
+    config = function()
+      require("plugins.configs.mini.hipatterns")
+    end,
+  },
+  {
+    "echasnovski/mini.ai",
+    event = { "BufReadPost", "BufWritePost" },
+    version = "*",
+    config = function()
+      require("plugins.configs.mini.ai")
+    end,
+  },
+
 }
