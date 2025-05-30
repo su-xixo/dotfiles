@@ -7,6 +7,7 @@ gnome-boxes
 gnome-browser-connector
 gparted
 helix
+kanata
 lazygit
 lua-language-server
 neovim
