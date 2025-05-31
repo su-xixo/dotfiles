@@ -155,7 +155,7 @@ _comps=(
 'cc' '_gcc'
 'ccache' '_ccache'
 'ccal' '_ccal'
-'cd' '__zoxide_z_complete'
+'cd' '_cd'
 'cdc' '_sccs'
 'cdcd' '_cdcd'
 'cdr' '_cdr'
@@ -197,7 +197,6 @@ _comps=(
 'clang-tidy' '_clang-tidy'
 'clay' '_clay'
 'clear' '_nothing'
-'clone-in-kitty' '_kitty'
 'cloudkitty' '_openstack'
 'clusterdb' '_postgresql'
 'cmake' '_cmake'
@@ -738,7 +737,6 @@ _comps=(
 'killall5' '_killall'
 'kioclient' '_kfmclient'
 'kitchen' '_kitchen'
-'kitten' '_kitty'
 'kitty' '_kitty'
 'knife' '_knife'
 'knock' '_knock'
@@ -1673,6 +1671,7 @@ _comps=(
 'xprop' '_x_utils'
 'xrandr' '_xrandr'
 'xrdb' '_x_utils'
+'xremap' '_xremap'
 'xscreensaver-command' '_xscreensaver'
 'xsel' '_xsel'
 'xset' '_xset'
@@ -1883,55 +1882,55 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _kitty _abbr _afew _age _android \
-            _archlinux-java _artisan _atach _avdmanager _bitcoin-cli \
-            _bower _bundle _cap _cask _ccache \
-            _cf _chatblade _choc _chromium _clang-check \
-            _clang-format _clang-tidy _cmake _coffee _conan \
-            _concourse _console _cppcheck _dad _dart \
-            _dget _dhcpcd _diana _direnv _docpad \
-            _do-release-upgrade _drush _ecdsautil _emacs _emacsclient \
-            _emulator _envdir _exportfs _fab _fail2ban-client \
-            _ffind _fleetctl _flutter _fwupdmgr _gas \
-            _ghc _gist _git-flow _git-pulls _git-revise \
-            _git-wtf _glances _golang _google _gpgconf \
-            _grpcurl _gtk-launch _hello _hledger _homestead \
-            _httpie _ibus _include-what-you-use _inxi _jest \
-            _jmeter _jmeter-plugins _job-queue _jonas _jrnl \
-            _kak _kitchen _knife _l3build _language_codes \
-            _lilypond _lscpu _lunchy _mc _middleman \
-            _mina _mix _mkcert _mssh _mussh \
-            _mvn _nano _nanoc _neo _neofetch \
-            _networkQuality _nftables _node _nvapp _nvm \
-            _openssl _openvpn3 _optirun _patool _periscope \
-            _pgsql_utils _phing _pixz _pkcon _play \
-            _pm2 _port _pre-commit _protoc _pygmentize \
-            _qmk _rails _ralio _rdfind _redis-cli \
-            _rfkill _rkt _rmlint _rslsync _rspec \
-            _rsvm _rubocop _sbt _scala _screencapture \
-            _scrub _sdd _sdkmanager _setcap _sfdx \
-            _shallow-backup _shellcheck _showoff _srm _stack \
-            _subliminal _supervisorctl _supervisord _svm _teamocil \
-            _thor _tmuxinator _tmuxp _tox _tsc \
-            _ts-node _udisksctl _ufw _uuidgen _virtualbox \
-            _vnstat _wemux _wg-quick _xsel _yarn \
-            _yfm _zcash-cli _zinit _alacritty _bat \
-            _bluetoothctl _bootctl _busctl _bwrap _cargo \
-            _checkupdates _codium _coredumpctl _curl _downgrade \
-            _eza _fd _firewalld _helix _hostnamectl \
-            _insmod _journalctl _kernel-install _kitty _libinput \
-            _localectl _loginctl _lsmod _machinectl _netctl \
-            _networkctl _ninja _oomctl _paccache _pacdiff \
-            _pacignore _paclist _paclog-pkglist _pacman _pacscripts \
-            _pacsearch _pacsort _pactree _parallel _patchelf \
-            _pkgfile _powerprofilesctl _pulseaudio _rankmirrors _resolvectl \
-            _rg _rmmod _run0 _rustup _sd \
-            _sd_hosts_or_user_at_host _sd_machines _sd_outputmodes _sd_unit_files _sensors \
-            _sensors-detect _shtab _starship _systemctl _systemd \
-            _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path \
-            _systemd-run _systemd-tmpfiles _taplo _timedatectl _tldr \
-            _udevadm _udisks2 _updpkgsums _upower _varlinkctl \
-            _wl-copy _wl-paste _wpctl _yay _yazi \
+autoload -Uz _abbr _afew _age _android _archlinux-java \
+            _artisan _atach _avdmanager _bitcoin-cli _bower \
+            _bundle _cap _cask _ccache _cf \
+            _chatblade _choc _chromium _clang-check _clang-format \
+            _clang-tidy _cmake _coffee _conan _concourse \
+            _console _cppcheck _dad _dart _dget \
+            _dhcpcd _diana _direnv _docpad _do-release-upgrade \
+            _drush _ecdsautil _emacs _emacsclient _emulator \
+            _envdir _exportfs _fab _fail2ban-client _ffind \
+            _fleetctl _flutter _fwupdmgr _gas _ghc \
+            _gist _git-flow _git-pulls _git-revise _git-wtf \
+            _glances _golang _google _gpgconf _grpcurl \
+            _gtk-launch _hello _hledger _homestead _httpie \
+            _ibus _include-what-you-use _inxi _jest _jmeter \
+            _jmeter-plugins _job-queue _jonas _jrnl _kak \
+            _kitchen _knife _l3build _language_codes _lilypond \
+            _lscpu _lunchy _mc _middleman _mina \
+            _mix _mkcert _mssh _mussh _mvn \
+            _nano _nanoc _neo _neofetch _networkQuality \
+            _nftables _node _nvapp _nvm _openssl \
+            _openvpn3 _optirun _patool _periscope _pgsql_utils \
+            _phing _pixz _pkcon _play _pm2 \
+            _port _pre-commit _protoc _pygmentize _qmk \
+            _rails _ralio _rdfind _redis-cli _rfkill \
+            _rkt _rmlint _rslsync _rspec _rsvm \
+            _rubocop _sbt _scala _screencapture _scrub \
+            _sdd _sdkmanager _setcap _sfdx _shallow-backup \
+            _shellcheck _showoff _srm _stack _subliminal \
+            _supervisorctl _supervisord _svm _teamocil _thor \
+            _tmuxinator _tmuxp _tox _tsc _ts-node \
+            _udisksctl _ufw _uuidgen _virtualbox _vnstat \
+            _wemux _wg-quick _xsel _yarn _yfm \
+            _zcash-cli _zinit _alacritty _bat _bluetoothctl \
+            _bootctl _busctl _bwrap _cargo _checkupdates \
+            _codium _coredumpctl _curl _downgrade _eza \
+            _fd _firewalld _helix _hostnamectl _insmod \
+            _journalctl _kernel-install _kitty _libinput _localectl \
+            _loginctl _lsmod _machinectl _netctl _networkctl \
+            _ninja _oomctl _paccache _pacdiff _pacignore \
+            _paclist _paclog-pkglist _pacman _pacscripts _pacsearch \
+            _pacsort _pactree _parallel _patchelf _pkgfile \
+            _powerprofilesctl _pulseaudio _rankmirrors _resolvectl _rg \
+            _rmmod _run0 _rustup _sd _sd_hosts_or_user_at_host \
+            _sd_machines _sd_outputmodes _sd_unit_files _sensors _sensors-detect \
+            _shtab _starship _systemctl _systemd _systemd-analyze \
+            _systemd-delta _systemd-inhibit _systemd-nspawn _systemd-path _systemd-run \
+            _systemd-tmpfiles _taplo _timedatectl _tldr _udevadm \
+            _udisks2 _updpkgsums _upower _varlinkctl _wl-copy \
+            _wl-paste _wpctl _xremap _yay _yazi \
             _zoxide _cdr _all_labels _all_matches _alternative \
             _approximate _arg_compile _arguments _bash_completions _cache_invalid \
             _call_function _combination _complete _complete_debug _complete_help \
