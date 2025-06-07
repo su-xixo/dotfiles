@@ -3,6 +3,7 @@ bat
 btop
 eza
 fzf
+gcc
 gnome-boxes
 gnome-browser-connector
 gparted
