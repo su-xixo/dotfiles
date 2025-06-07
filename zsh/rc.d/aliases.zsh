@@ -36,6 +36,8 @@ if command -v git &>/dev/null; then
   alias glg="git log"
   alias gpo="git pull origin main"
   alias gPo="git push origin main"
+  # lazygit
+  alias lg="lazygit"
 fi
 
 if command -v zypper &>/dev/null; then
