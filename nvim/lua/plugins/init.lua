@@ -12,6 +12,13 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    opts = function()
+      require "configs.nvimtree"
+    end,
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
