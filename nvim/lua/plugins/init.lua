@@ -1,7 +1,6 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
     event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
@@ -19,6 +18,17 @@ return {
     opts = function()
       require "configs.nvimtree"
     end,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = {
+      {
+        "nvim-telescope/telescope.nvim",
+        enabled = false
+      },
+    },
+    cmd = "FzfLua",
+    opts = ...,
   },
 
   -- test new blink
