@@ -4,4 +4,4 @@
 	email = suraj.vishwakarma.01@yandex.com
 	name = suxixo
 [credential]
-	helper = store
+	helper = cache
