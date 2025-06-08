@@ -25,6 +25,10 @@ map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+-- formatter
+map({ 'n', 'x' }, "<leader>=", function() require('conform').format() end, { desc = "Format code" })
+
+
 -- Tree ( NvimTree + MiniFiles )
 map("n", "<leader>e", function()
   local api = require "nvim-tree.api"
@@ -35,6 +39,17 @@ map("n", "<leader>E", function()
   local api = require "nvim-tree.api"
   api.tree.toggle { path = vim.fn.getcwd(), find_file = false, update_root = false, focus = true }
 end, { desc = "Tree(cwd)" })
+
+map('n', "<leader>fm", function()
+  vim.cmd((vim.bo.filetype == 'oil') and "lua require('oil.actions').close.callback()" or 'Oil')
+end, { desc = "Open Explorer(Directory of current file)" })
+map('n', "<leader>fM", function()
+  if vim.bo.filetype == 'oil' then
+    require('oil.actions').close.callback()
+  else
+    require('oil').open(vim.uv.cwd())
+  end
+end, { desc = "Open Explorer(cwd)" })
 
 -- Picker ( fzf-lua / mini.pick )
 -- files
