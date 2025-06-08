@@ -65,6 +65,15 @@ return {
     },
   },
   {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- "sindrets/diffview.nvim",
+    },
+    cmd = { "Neogit" },
+    opts = ...,
+  },
+  {
     "gerazov/toggle-bool.nvim",
     keys = {
       { "<leader>tt" },
