@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -20,9 +20,9 @@ return {
     end,
   },
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     -- event = 'VeryLazy',
-    cmd = 'Oil',
+    cmd = "Oil",
     opts = {
       win_options = {
         relativenumber = true,
@@ -34,7 +34,6 @@ return {
         ["<C-h>"] = false,
         ["g-"] = { "actions.select", opts = { horizontal = true } },
       },
-
     },
   },
   {
@@ -42,11 +41,28 @@ return {
     dependencies = {
       {
         "nvim-telescope/telescope.nvim",
-        enabled = false
+        enabled = false,
       },
     },
     cmd = "FzfLua",
     opts = ...,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
 
   -- test new blink

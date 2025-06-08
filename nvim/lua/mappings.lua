@@ -1,3 +1,4 @@
+-- stylua: ignore start
 local utils = require('utils')
 require "nvchad.mappings"
 
@@ -88,4 +89,7 @@ map("v", "<leader>sW", function() require('fzf-lua').grep_visual() end, { desc =
 map("n", "<leader>ss", function() require("fzf-lua").lsp_document_symbols({ regex_filter = symbols_filter }) end, { desc = "Goto Symbol" } )
 map("n", "<leader>sS", function() require("fzf-lua").lsp_live_workspace_symbols({ regex_filter = symbols_filter }) end, { desc = "Goto Symbol (Workspace)" } )
 
+-- git ( lazygit + neogit )
+map('n', "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open lazygit" })
 
+-- stylua: ignore end
