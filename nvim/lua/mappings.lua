@@ -91,5 +91,8 @@ map("n", "<leader>sS", function() require("fzf-lua").lsp_live_workspace_symbols(
 
 -- git ( lazygit + neogit )
 map('n', "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open lazygit" })
+map('n', "<leader>gg", "<cmd>Neogit<CR>", { desc = "Neogit" })
+map('n', "<leader>gc", "<cmd>Neogit commit<CR>", { desc = "Neogit commit" })
+map('n', "<leader>gl", "<cmd>Neogit commit<CR>", { desc = "Neogit commit" })
 
 -- stylua: ignore end
