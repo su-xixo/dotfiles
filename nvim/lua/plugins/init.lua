@@ -110,6 +110,41 @@ return {
     end,
   },
   {
+    "echasnovski/mini.surround",
+    lazy = false,
+    keys = function(_, keys)
+      local opts = require("utils").opts "mini.surround"
+      local mappings = {
+        { opts.mappings.add, desc = "Add Surrounding", mode = { "n", "v" } },
+        { opts.mappings.delete, desc = "Delete Surrounding" },
+        { opts.mappings.find, desc = "Find Right Surrounding" },
+        { opts.mappings.find_left, desc = "Find Left Surrounding" },
+        { opts.mappings.highlight, desc = "Highlight Surrounding" },
+        { opts.mappings.replace, desc = "Replace Surrounding" },
+        { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
+      }
+      local mappings = vim
+        .iter(mappings)
+        :filter(function(item)
+          return item[1] ~= (nil or "")
+        end)
+        :totable()
+      return (vim.list_extend(mappings, keys))
+    end,
+    opts = {
+      mappings = {
+        -- NOTE: `<time>gs` used for sleep. can be acess with `:sleep <time>`
+        add = "gsa", -- Add surrounding in Normal and Visual modes
+        delete = "gsd", -- Delete surrounding
+        find = "gsf", -- Find surrounding (to the right)
+        find_left = "gsF", -- Find surrounding (to the left)
+        highlight = "gsh", -- Highlight surrounding
+        replace = "gsr", -- Replace surrounding
+        update_n_lines = "gsn", -- Update `n_lines`
+      },
+    },
+  },
+  {
     "gerazov/toggle-bool.nvim",
     keys = {
       { "<leader>tt" },
