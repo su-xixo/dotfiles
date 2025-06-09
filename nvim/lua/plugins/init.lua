@@ -219,6 +219,27 @@ return {
       })
     end,
   },
+  {
+    "echasnovski/mini.ai",
+    event = { "BufRead", "BufReadPre" },
+    opts = {},
+  },
+  {
+    "echasnovski/mini.align",
+    keys = { "ga", "gA" },
+    opts = {},
+    config = function(_, opts)
+      require("mini.align").setup()
+    end,
+  },
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = { -- load the plugin only when using it's keybinding:
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+    },
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },

@@ -16,6 +16,8 @@
   "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
   "mason.nvim": { "branch": "main", "commit": "8024d64e1330b86044fed4c8494ef3dcd483a67c" },
   "menu": { "branch": "main", "commit": "7a0a4a2896b715c066cfbe320bdc048091874cc6" },
+  "mini.ai": { "branch": "main", "commit": "95e9d77e58bdf633c4d0c6b8c72892dd10eada51" },
+  "mini.align": { "branch": "main", "commit": "969bdcdf9b88e30bda9cb8ad6f56afed208778ad" },
   "mini.animate": { "branch": "main", "commit": "9b518c39c0e25b7b5e4e61db3f1407f7b4889f4e" },
   "mini.indentscope": { "branch": "main", "commit": "8af2569a7d7fd37300dfa760e44e71efbbf322fd" },
   "mini.surround": { "branch": "main", "commit": "365f98d842face0876e95f05d6e48fbfcc08e351" },
@@ -32,6 +34,7 @@
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
   "toggle-bool.nvim": { "branch": "main", "commit": "8eb504f8ee21e9983dfa3bf8696f64cc09ff2f51" },
   "ui": { "branch": "v3.0", "commit": "b7c656064ec54f77bc6c75e4c51108ba451e6d7a" },
+  "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
   "volt": { "branch": "main", "commit": "c45d5f48da8e802e608b5c6da471ca4d84276dfb" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }
