@@ -41,6 +41,10 @@ map("n", "<leader>E", function()
   api.tree.toggle { path = vim.fn.getcwd(), find_file = false, update_root = false, focus = true }
 end, { desc = "Tree(cwd)" })
 
+map("n", "<C-n>", function ()
+  return vim.cmd("NvimTreeToggle" .. vim.uv.cwd())
+end, { desc = "nvimtree toggle window" })
+
 map('n', "<leader>fm", function()
   vim.cmd((vim.bo.filetype == 'oil') and "lua require('oil.actions').close.callback()" or 'Oil')
 end, { desc = "Open Explorer(Directory of current file)" })
