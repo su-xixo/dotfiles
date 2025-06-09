@@ -93,6 +93,23 @@ return {
     opts = ...,
   },
   {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    cond = vim.g.neovide == nil,
+    init = function()
+      vim.g.minianimate_disable = true
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "Neogit*", "grug-far", "nvdash", "oil", "NvimTree" },
+        callback = function()
+          vim.b.minianimate_disable = true
+        end,
+      })
+    end,
+    opts = function(_, opts)
+      return require "configs.mini_animation"
+    end,
+  },
+  {
     "gerazov/toggle-bool.nvim",
     keys = {
       { "<leader>tt" },
