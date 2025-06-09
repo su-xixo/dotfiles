@@ -14,9 +14,26 @@ return {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
+    init = function()
+      -- NvimTree as directory explorer on startup
+      vim.api.nvim_create_autocmd("VimEnter", {
+        desc = "Open NvimTree if started with a directory",
+        group = vim.api.nvim_create_augroup("NvimTreeOnDir", { clear = true }),
+        callback = function()
+          if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+            -- require("nvim-tree.api").tree.open { path = vim.fn.argv(0) }
+            vim.cmd("NvimTreeOpen" .. vim.fn.argv(0)) -- same as above line
+            vim.cmd "wincmd p" -- Move cursor to previous window (nvimtree window)
+          end
+        end,
+      })
+    end,
     opts = function()
       require "configs.nvimtree"
+    end,
+    config = function(_, opts)
+      require("nvim-tree").setup(opts)
     end,
   },
   {
