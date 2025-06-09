@@ -21,9 +21,11 @@ return {
   },
   {
     "stevearc/oil.nvim",
-    -- event = 'VeryLazy',
+    -- event = "VeryLazy",
+    -- lazy = false, -- to use oil as default directory explorer. `VeryLazy` will work
     cmd = "Oil",
     opts = {
+      default_file_explorer = true,
       win_options = {
         relativenumber = true,
       },
