@@ -111,7 +111,7 @@ return {
   },
   {
     "echasnovski/mini.surround",
-    lazy = false,
+    -- lazy = false,
     keys = function(_, keys)
       local opts = require("utils").opts "mini.surround"
       local mappings = {
@@ -146,36 +146,42 @@ return {
   },
   {
     "gerazov/toggle-bool.nvim",
-    keys = {
-      { "<leader>tt" },
+    -- lazy = false,
+    keys = function()
+      local opts = require("utils").opts "toggle-bool.nvim"
+      return opts.mapping
+    end,
+    opts = {
+      mapping = "<leader>tt",
+      additional_toggles = {
+        left = "right",
+        Yes = "No",
+        On = "Off",
+        ["0"] = "1",
+        Enable = "Disable",
+        Enabled = "Disabled",
+        First = "Last",
+        Before = "After",
+        Persistent = "Ephemeral",
+        Internal = "External",
+        Start = "Stop",
+        In = "Out",
+        Open = "Close",
+        Enter = "Exit",
+        Lock = "Unlock",
+        Connect = "Disconnect",
+        Mount = "Dismount",
+        Import = "Export",
+        Ingress = "Egress",
+        Allow = "Deny",
+        All = "None",
+      },
     },
-    config = function()
-      require("toggle-bool").setup {
-        mapping = "<leader>tt",
-        additional_toggles = {
-          left = "right",
-          Yes = "No",
-          On = "Off",
-          ["0"] = "1",
-          Enable = "Disable",
-          Enabled = "Disabled",
-          First = "Last",
-          Before = "After",
-          Persistent = "Ephemeral",
-          Internal = "External",
-          Start = "Stop",
-          In = "Out",
-          Open = "Close",
-          Enter = "Exit",
-          Lock = "Unlock",
-          Connect = "Disconnect",
-          Mount = "Dismount",
-          Import = "Export",
-          Ingress = "Egress",
-          Allow = "Deny",
-          All = "None",
-        },
-      }
+    config = function(_, opts)
+      require("toggle-bool").setup(opts)
+      vim.keymap.set("n", opts.mapping or "<leader>tt", function()
+        require("toggle-bool").toggle_bool()
+      end, { desc = "Toggle value" })
     end,
   },
 
