@@ -240,6 +240,15 @@ return {
       { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
     },
   },
+  {
+    "nvzone/showkeys",
+    cmd = "ShowkeysToggle",
+    opts = {
+      timeout = 1,
+      maxkeys = 5,
+      excluded_modes = {},
+    },
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
