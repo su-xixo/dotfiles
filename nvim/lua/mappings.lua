@@ -23,6 +23,7 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", "<leader>ms", "<cmd>messages<CR>", { desc = "Messages show" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
@@ -98,5 +99,10 @@ map('n', "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open lazygit" })
 map('n', "<leader>gg", "<cmd>Neogit<CR>", { desc = "Neogit" })
 map('n', "<leader>gc", "<cmd>Neogit commit<CR>", { desc = "Neogit commit" })
 map('n', "<leader>gl", "<cmd>Neogit commit<CR>", { desc = "Neogit commit" })
+
+-- Lsp ( inc-rename + )
+map("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { desc = "Rename", expr = true })
 
 -- stylua: ignore end
