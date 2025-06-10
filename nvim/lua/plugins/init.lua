@@ -149,8 +149,9 @@ return {
     -- lazy = false,
     keys = function()
       local opts = require("utils").opts "toggle-bool.nvim"
-      return opts.mapping
+      return { { opts.mapping, desc = "Toggle value" } }
     end,
+    cmd = "ToggleBool",
     opts = {
       mapping = "<leader>tt",
       additional_toggles = {
@@ -179,9 +180,12 @@ return {
     },
     config = function(_, opts)
       require("toggle-bool").setup(opts)
-      vim.keymap.set("n", opts.mapping or "<leader>tt", function()
+
+      vim.api.nvim_create_user_command("ToggleBool", function()
         require("toggle-bool").toggle_bool()
-      end, { desc = "Toggle value" })
+      end, {})
+
+      vim.keymap.set("n", opts.mapping or "<leader>tt", "<cmd>ToggleBool<CR>", { desc = "Toggle value" })
     end,
   },
   {
@@ -248,6 +252,11 @@ return {
       maxkeys = 5,
       excluded_modes = {},
     },
+  },
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRename",
+    opts = {},
   },
 
   -- test new blink
