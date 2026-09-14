@@ -39,3 +39,9 @@ Thumbs.db
 ################
 .vscode
 .zed
+
+# Development Files #
+#####################
+runtime/
+src/runtime/
+app/runtime/
