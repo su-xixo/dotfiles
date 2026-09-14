@@ -15,22 +15,18 @@ max_width = 1000
 max_height = 1000
 
 [opener]
-edit = [
-    { run = '${EDITOR:-vim} "$@"', block = true, for = "unix" }
-]
+edit = [{ run = '${EDITOR:-vim} "$@"', block = true, for = "unix" }]
 
-open = [
-    { run = 'xdg-open "$1"', orphan = true, for = "linux" }
-]
+open = [{ run = 'xdg-open "$1"', orphan = true, for = "linux" }]
 
 [open]
 rules = [
-    { mime = "text/*", use = "edit" },
-    { mime = "application/json", use = "edit" },
-    { mime = "application/pdf", use = "open" },
-    { mime = "image/*", use = "open" },
-    { mime = "video/*", use = "open" },
-    { mime = "audio/*", use = "open" },
+  { mime = "text/*", use = "edit" },
+  { mime = "application/json", use = "edit" },
+  { mime = "application/pdf", use = "open" },
+  { mime = "image/*", use = "open" },
+  { mime = "video/*", use = "open" },
+  { mime = "audio/*", use = "open" },
 ]
 
 [input]
@@ -45,4 +41,3 @@ sort_translit = true
 micro_workers = 5
 macro_workers = 10
 bizarre_retry = 3
-
